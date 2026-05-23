@@ -11,3 +11,21 @@ Desktop.ini
 
 # Gemini/AI working files
 .gemini/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnp
+.pnp.js
+
+# Monorepo Global
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+backend/vendor/
+backend/.env
+frontend/.env
+frontend/.env.local
+backend/public/storage
+backend/storage/*.key
