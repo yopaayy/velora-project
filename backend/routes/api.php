@@ -39,5 +39,7 @@ Route::prefix('v1')->group(function () {
         });
 
     });
-});
 
+    // ─── POS MODULE ROUTES ───
+    require base_path('app/Modules/POS/Routes/api.php');
+});
