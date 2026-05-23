@@ -1,0 +1,34 @@
+{
+  "Navigation": {
+    "dashboard": "Beranda",
+    "pos": "Kasir (POS)",
+    "sales": "Penjualan",
+    "inventory": "Inventaris",
+    "purchasing": "Pembelian",
+    "crm": "Pelanggan (CRM)",
+    "finance": "Keuangan & Laporan",
+    "settings": "Pengaturan"
+  },
+  "Dashboard": {
+    "title": "Beranda",
+    "totalRevenue": "Total Pendapatan",
+    "transactions": "Transaksi",
+    "sales": "Penjualan",
+    "activeMembers": "Member Aktif",
+    "overview": "Ikhtisar",
+    "recentSales": "Penjualan Terkini"
+  },
+  "Auth": {
+    "login": "Masuk",
+    "register": "Daftar Akun Baru",
+    "email": "Alamat Email",
+    "password": "Kata Sandi",
+    "businessName": "Nama Bisnis / Toko",
+    "name": "Nama Lengkap",
+    "submitLogin": "Masuk Sekarang",
+    "submitRegister": "Buat Akun",
+    "noAccount": "Belum punya akun?",
+    "hasAccount": "Sudah memiliki akun?",
+    "logout": "Keluar"
+  }
+}

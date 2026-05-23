@@ -13,16 +13,15 @@ import {
 import { Menu, Store } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Sidebar } from "./Sidebar";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Topbar() {
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4 sm:px-6 shadow-sm">
       <Sheet>
-        <SheetTrigger asChild>
-          <Button size="icon" variant="outline" className="sm:hidden">
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle Menu</span>
-          </Button>
+        <SheetTrigger render={<Button size="icon" variant="outline" className="sm:hidden" />}>
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle Menu</span>
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs p-0">
           <Sidebar />
@@ -39,14 +38,14 @@ export function Topbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          <LanguageSwitcher />
+
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                <Avatar className="h-9 w-9">
-                  <AvatarImage src="/avatars/01.png" alt="@owner" />
-                  <AvatarFallback>OW</AvatarFallback>
-                </Avatar>
-              </Button>
+            <DropdownMenuTrigger render={<Button variant="ghost" className="relative h-8 w-8 rounded-full" />}>
+              <Avatar className="h-9 w-9">
+                <AvatarImage src="/avatars/01.png" alt="@owner" />
+                <AvatarFallback>OW</AvatarFallback>
+              </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">

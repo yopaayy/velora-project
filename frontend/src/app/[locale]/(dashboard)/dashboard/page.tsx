@@ -1,18 +1,21 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function DashboardPage() {
+  const t = useTranslations("Dashboard");
+
   return (
     <div className="flex-1 space-y-4">
       <div className="flex items-center justify-between space-y-2 mb-6">
-        <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+        <h2 className="text-3xl font-bold tracking-tight">{t("title")}</h2>
       </div>
       
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Total Revenue
+              {t("totalRevenue")}
             </CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
@@ -26,7 +29,7 @@ export default function DashboardPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Transactions
+              {t("transactions")}
             </CardTitle>
             <CreditCard className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
@@ -39,7 +42,7 @@ export default function DashboardPage() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Sales</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("sales")}</CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -51,7 +54,7 @@ export default function DashboardPage() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Members</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("activeMembers")}</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -66,7 +69,7 @@ export default function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-4">
         <Card className="col-span-4">
           <CardHeader>
-            <CardTitle>Overview</CardTitle>
+            <CardTitle>{t("overview")}</CardTitle>
             <CardDescription>
               Placeholder for AI Forecast Chart.
             </CardDescription>
@@ -77,7 +80,7 @@ export default function DashboardPage() {
         </Card>
         <Card className="col-span-3">
           <CardHeader>
-            <CardTitle>Recent Sales</CardTitle>
+            <CardTitle>{t("recentSales")}</CardTitle>
             <CardDescription>
               You made 265 sales this month.
             </CardDescription>

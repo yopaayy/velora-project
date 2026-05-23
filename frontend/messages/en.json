@@ -1,0 +1,34 @@
+{
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "pos": "Point of Sale",
+    "sales": "Sales & Transactions",
+    "inventory": "Inventory",
+    "purchasing": "Purchasing",
+    "crm": "CRM & Customers",
+    "finance": "Finance & Reports",
+    "settings": "Settings"
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "totalRevenue": "Total Revenue",
+    "transactions": "Transactions",
+    "sales": "Sales",
+    "activeMembers": "Active Members",
+    "overview": "Overview",
+    "recentSales": "Recent Sales"
+  },
+  "Auth": {
+    "login": "Sign In",
+    "register": "Create an Account",
+    "email": "Email Address",
+    "password": "Password",
+    "businessName": "Business Name",
+    "name": "Full Name",
+    "submitLogin": "Sign In",
+    "submitRegister": "Create Account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "logout": "Log out"
+  }
+}

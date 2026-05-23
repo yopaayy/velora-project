@@ -1,5 +1,7 @@
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+"use client";
+
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -12,53 +14,22 @@ import {
   LineChart
 } from "lucide-react";
 
-const sidebarNavItems = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "POS",
-    href: "/pos",
-    icon: ShoppingCart,
-  },
-  {
-    title: "Sales & Transactions",
-    href: "/sales",
-    icon: Receipt,
-  },
-  {
-    title: "Inventory",
-    href: "/inventory",
-    icon: Package,
-  },
-  {
-    title: "Purchasing",
-    href: "/purchasing",
-    icon: Truck,
-  },
-  {
-    title: "CRM & Customers",
-    href: "/crm",
-    icon: Users,
-  },
-  {
-    title: "Finance & Reports",
-    href: "/finance",
-    icon: LineChart,
-  },
-  {
-    title: "Settings",
-    href: "/settings",
-    icon: Settings,
-  },
-];
-
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function Sidebar({ className, ...props }: SidebarProps) {
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
+
+  const sidebarNavItems = [
+    { title: t("dashboard"), href: "/dashboard", icon: LayoutDashboard },
+    { title: t("pos"), href: "/pos", icon: ShoppingCart },
+    { title: t("sales"), href: "/sales", icon: Receipt },
+    { title: t("inventory"), href: "/inventory", icon: Package },
+    { title: t("purchasing"), href: "/purchasing", icon: Truck },
+    { title: t("crm"), href: "/crm", icon: Users },
+    { title: t("finance"), href: "/finance", icon: LineChart },
+    { title: t("settings"), href: "/settings", icon: Settings },
+  ];
 
   return (
     <div className={cn("pb-12 border-r h-screen bg-background", className)} {...props}>
