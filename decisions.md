@@ -145,6 +145,21 @@ AI_CACHE_TTL=300           # 5 menit
 
 ---
 
+## Decision #6: API Management & Documentation Tool
+
+**Keputusan**: **Postman**
+
+**Alasan**:
+- Postman adalah standar industri untuk pengujian dan dokumentasi API.
+- Mendukung fitur *Collections* yang bisa diekspor dan dibagikan dengan tim (misalnya antara backend developer dan frontend developer).
+- Mudah digunakan untuk simulasi otentikasi (mengatur Bearer Token dari endpoint login ke seluruh request lainnya secara otomatis).
+
+**Implementasi**:
+- Kita akan mengatur setiap endpoint yang selesai dibuat di Laravel langsung ke dalam sebuah file Postman Collection (contoh: `Velora_API_Collection.json`).
+- File collection tersebut nanti akan disimpan di dalam repositori agar mudah diakses.
+
+---
+
 ## Summary — Keputusan Final
 
 | # | Area | Keputusan |
@@ -161,6 +176,7 @@ AI_CACHE_TTL=300           # 5 menit
 | 10 | Currency | Multi-currency (default IDR) |
 | 11 | Billing | Dual: Auto-Charge + Manual Transfer |
 | 12 | Offline POS | Tidak — online only, subscription-gated |
+| 13 | API Management | Postman (menggunakan Collection exports) |
 
 ---
 
