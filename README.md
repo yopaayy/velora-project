@@ -81,6 +81,29 @@ php artisan serve
 ```
 *Server API sekarang akan berjalan di `http://127.0.0.1:8000`.* Biarkan terminal ini tetap terbuka.
 
+### 4. Setup Frontend (Next.js)
+
+Buka terminal/CMD baru (biarkan terminal Backend tetap berjalan).
+Masuk ke folder `frontend`:
+```bash
+cd frontend
+```
+
+**Install dependensi Node.js:**
+```bash
+npm install
+```
+
+*(Opsional)* Jika ada file `.env.example` di folder frontend, salin menjadi `.env.local`. Saat ini konfigurasi bawaan sudah siap dipakai untuk *development*.
+
+**Jalankan Server Lokal Frontend:**
+```bash
+npm run dev
+```
+
+*Server Web sekarang akan berjalan di `http://localhost:3000`.* 
+Buka browser Anda dan arahkan ke alamat tersebut untuk melihat tampilan Dashboard. Aplikasi akan secara otomatis beralih ke rute multi-bahasa (`http://localhost:3000/id/login`).
+
 ---
 
 ## Panduan Pengujian API Menggunakan Postman
@@ -104,8 +127,7 @@ Untuk mempermudah pengujian API tanpa frontend, kami telah menyediakan file **Ko
 ## Struktur Folder Utama
 
 - `backend/` - Berisi source code utama Laravel 11. Menggunakan pattern Modular Monolith di `app/Modules/` dan `app/Shared/`.
-- `backend/app/Modules` - Folder tempat fitur-fitur modular (Auth, Tenant, POS, Sales, dll) berada.
-- `frontend/` - (*Segera Hadir*)
+- `frontend/` - Berisi source code Next.js 15 App Router dengan shadcn/ui dan next-intl (i18n).
 - `Velora_API_Collection.json` - Endpoint lengkap untuk testing Postman.
 
 ---
