@@ -1,106 +1,113 @@
-# 🚀 VELORA — SaaS POS Enterprise Platform
+# Velora SaaS POS
 
-> Platform SaaS POS (Point of Sale) multi-tenant untuk UMKM Indonesia dengan AI-powered business insights.
-
----
-
-## 📋 Overview
-
-VELORA adalah platform POS berbasis SaaS yang dirancang untuk membantu UMKM Indonesia mengelola bisnis mereka dengan mudah. Dilengkapi dengan fitur AI untuk memberikan insight bisnis yang cerdas.
-
-## 🏗️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| **Backend** | Laravel 13 · PHP 8.3+ |
-| **Frontend** | Next.js 15 (React) · TypeScript · Tailwind CSS |
-| **Database** | MySQL 8.0+ |
-| **Cache/Queue** | Redis 7+ |
-| **Search** | Laravel Scout + Meilisearch |
-| **Payment** | Midtrans Snap API |
-| **AI Engine** | OpenAI GPT-4o (Platform-level key) |
-| **Storage** | S3-compatible (MinIO for dev) |
-| **Realtime** | Laravel Reverb (WebSocket) |
-
-## 🧩 Modules (15 Modules)
-
-### Core Modules
-- **Tenant** — Business registration, branch management, tenant isolation
-- **Auth** — Login, registration, token management, password reset
-- **Subscription** — Plans, billing, Midtrans integration, feature gating
-
-### Business Modules
-- **POS** — Products, variants, categories, barcodes, unit conversion
-- **Sales** — Transactions, shifts, payment methods, refunds
-- **Inventory** — Warehouses, stock movements, opname, batch/expiry
-- **Purchasing** — Suppliers, purchase orders, receiving
-- **Finance** — Expenses, journals, cash flows, profit/loss
-- **CRM** — Customers, loyalty points, vouchers
-
-### Support Modules
-- **Employee** — Staff management, attendance, roles per branch
-- **Notification** — Email, push, in-app notifications
-- **Report** — Sales, stock, financial reports, export
-- **Audit** — Activity logs, audit trails, data change history
-- **Setting** — Business settings, POS config, API keys
-
-### Intelligence Module
-- **AI** — Smart insights, sales forecasting, restock suggestions, anomaly detection
-
-## 📁 Documentation Structure
-
-```
-velora-project/
-├── implementation_plan.md          # Master architecture plan
-├── ai_architecture.md              # AI module design
-├── infrastructure_architecture.md  # Multi-tenant, subscription, inventory, roles
-├── infrastructure_architecture_part2.md  # Financial, events, queue, cache, security
-├── database_architecture_part1.md  # Core DB tables
-├── database_architecture_part2.md  # Business DB tables
-├── database_architecture_part3.md  # Support DB tables
-├── database_architecture_addendum.md  # Multi-currency, Midtrans, AI tables
-├── module_auth.md                  # Auth module blueprint
-├── module_tenant_part1/2.md        # Tenant module blueprint
-├── module_subscription_part1/2.md  # Subscription module blueprint
-├── module_pos_part1/2/3.md         # POS module blueprint
-├── module_inventory_part1/2/3.md   # Inventory module blueprint
-├── module_sales_part1/2/3.md       # Sales module blueprint
-├── module_crm_part1/2.md           # CRM module blueprint
-├── module_finance_part1/2.md       # Finance module blueprint
-├── module_settings_reports.md      # Settings & Reports blueprint
-├── setup_guide_part1/2.md          # Laravel setup guide
-└── decisions.md                    # Architecture decisions log
-```
-
-## 🎯 Key Decisions
-
-| Question | Decision |
-|----------|----------|
-| **Framework** | Laravel 13 (PHP 8.3+) |
-| **Frontend** | Next.js 15 + TypeScript + Tailwind CSS |
-| **Payment** | Midtrans Snap API |
-| **Currency** | Multi-currency (default IDR) |
-| **AI Key** | Platform-level (Velora manages) |
-| **Receipt** | PDF/Browser print (MVP) → ESC/POS (Phase 2) |
-| **Deployment** | Shared Hosting → VPS (MVP) → Cloud (Scale) |
-| **Billing** | Dual: Auto-Charge (Midtrans) + Manual Transfer |
-
-## 📊 Project Status
-
-- [x] Architecture Planning
-- [x] Database Design (~71 tables)
-- [x] Module Blueprints (15 modules)
-- [x] Infrastructure Design
-- [x] AI Architecture
-- [ ] Backend Implementation
-- [ ] Frontend Implementation
-- [ ] Testing
-- [ ] Deployment
-
-## 📄 License
-
-Private — All rights reserved.
+Sistem Point of Sales (POS) Multi-Tenant berbasis Software as a Service (SaaS). 
+Proyek ini mengadopsi arsitektur Modular Monolith (Domain-Driven) dengan Laravel sebagai backend dan Next.js (segera hadir) sebagai frontend.
 
 ---
 
-*Built with ❤️ for Indonesian SMEs (UMKM)*
+## Prasyarat (Prerequisites)
+
+Sebelum melakukan clone dan menjalankan aplikasi ini di perangkat baru, pastikan perangkat Anda sudah terinstal perangkat lunak berikut:
+
+1. **PHP >= 8.2** (Rekomendasi: Menggunakan Laragon atau XAMPP di Windows).
+2. **Composer** (Package Manager untuk PHP).
+3. **MySQL / MariaDB** (Rekomendasi: Versi 8.x).
+4. **Git** (Untuk version control).
+5. **Node.js & npm** (Minimal versi LTS 18.x atau 20.x untuk Frontend nantinya).
+6. **Postman** (Opsional, sangat disarankan untuk pengujian API).
+
+---
+
+## Panduan Instalasi (Full Clone & Setup Guide)
+
+Ikuti langkah-langkah di bawah ini secara berurutan untuk menjalankan project ini pada perangkat (device) yang baru.
+
+### 1. Clone Repositori
+Buka Terminal / Command Prompt / PowerShell, arahkan ke folder di mana Anda ingin meletakkan project, lalu jalankan:
+
+```bash
+git clone https://github.com/yopaayy/velora-project.git
+cd velora-project
+```
+
+### 2. Setup Database (MySQL)
+Buka aplikasi database management kesayangan Anda (misalnya Laragon phpMyAdmin, DBeaver, TablePlus, atau MySQL CLI).
+1. Buat sebuah database baru dengan nama `velora`.
+   *Command SQL:* `CREATE DATABASE velora;`
+
+### 3. Setup Backend (Laravel)
+
+Masuk ke folder `backend`:
+```bash
+cd backend
+```
+
+**Install dependensi PHP via Composer:**
+```bash
+composer install
+```
+
+**Siapkan konfigurasi Environment (.env):**
+Salin file `.env.example` menjadi `.env`.
+```bash
+cp .env.example .env
+# Jika menggunakan CMD/PowerShell di Windows:
+# copy .env.example .env
+```
+Buka file `.env` di text editor, pastikan bagian konfigurasi database sudah benar sesuai dengan database lokal Anda (biasanya user root tanpa password jika menggunakan Laragon bawaan):
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=velora
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+**Generate Application Key:**
+```bash
+php artisan key:generate
+```
+
+**Migrasi Database dan Eksekusi Seeder:**
+Jalankan perintah ini untuk membangun seluruh struktur tabel ke database `velora` sekaligus mengisi data default (Mata Uang, Role, Permission, dan Paket Langganan).
+```bash
+php artisan migrate --seed
+```
+
+**Jalankan Server Lokal Backend:**
+```bash
+php artisan serve
+```
+*Server API sekarang akan berjalan di `http://127.0.0.1:8000`.* Biarkan terminal ini tetap terbuka.
+
+---
+
+## Panduan Pengujian API Menggunakan Postman
+
+Untuk mempermudah pengujian API tanpa frontend, kami telah menyediakan file **Koleksi Postman**. Koleksi ini dilengkapi dengan script otomatis yang akan menyimpan *Bearer Token* saat Anda berhasil login.
+
+1. Buka aplikasi **Postman**.
+2. Klik tombol **Import** (di panel kiri atas).
+3. Cari file `Velora_API_Collection.json` yang berada di *root* direktori project Anda (`velora-project/Velora_API_Collection.json`), kemudian pilih file tersebut.
+4. Akan muncul folder koleksi baru bernama **Velora SaaS POS API**.
+5. Pastikan Environment Postman berada di status `No Environment`.
+
+### Skenario Singkat Pengujian
+1. **Daftar**: Buka endpoint `Auth > 1. Register Owner & Business` dan klik Send. Anda akan mendapatkan balasan *Status 201 Created*.
+2. **Login**: Buka endpoint `Auth > 2. Login` dan klik Send. Sistem Postman otomatis akan menangkap Token rahasia Anda.
+3. **Mengecek Data Diri**: Coba `Auth > 3. Get Profile (Me)`.
+4. **Dashboard Tenant**: Akses `Tenant (Protected) > Test Tenant Dashboard Access`. Anda sudah siap melanjutkan integrasi!
+
+---
+
+## Struktur Folder Utama
+
+- `backend/` - Berisi source code utama Laravel 11. Menggunakan pattern Modular Monolith di `app/Modules/` dan `app/Shared/`.
+- `backend/app/Modules` - Folder tempat fitur-fitur modular (Auth, Tenant, POS, Sales, dll) berada.
+- `frontend/` - (*Segera Hadir*)
+- `Velora_API_Collection.json` - Endpoint lengkap untuk testing Postman.
+
+---
+
+> *Project Setup Complete! Selamat mengembangkan Velora SaaS.*
